@@ -2,112 +2,74 @@
 
 # 🏢 Enterprise Campus Network
 
-### High Availability • Redundancy • Layer 3 Switching • Cisco Packet Tracer
-
-<p align="center">
+### High Availability Enterprise Network using Cisco Packet Tracer
 
 ![Cisco](https://img.shields.io/badge/Cisco-Packet_Tracer-1BA0D7?style=for-the-badge&logo=cisco)
 ![CCNA](https://img.shields.io/badge/CCNA-Level-success?style=for-the-badge)
 ![Enterprise](https://img.shields.io/badge/Enterprise-Network-blue?style=for-the-badge)
 ![HSRP](https://img.shields.io/badge/HSRP-Enabled-red?style=for-the-badge)
-![EtherChannel](https://img.shields.io/badge/EtherChannel-LACP-blueviolet?style=for-the-badge)
+![EtherChannel](https://img.shields.io/badge/EtherChannel-Configured-blueviolet?style=for-the-badge)
+![VLAN](https://img.shields.io/badge/VLAN-Implemented-orange?style=for-the-badge)
 
-</p>
-
-**A production-inspired Enterprise Campus Network implementing Cisco best practices for scalability, high availability, redundancy, and secure Layer 2 / Layer 3 communication.**
+### Designing a scalable, redundant, and highly available enterprise campus network using Cisco Layer 2 and Layer 3 switching technologies.
 
 ---
 
-*"Designing networks isn't about making devices communicate; it's about ensuring they never stop communicating."*
+*"Reliable networks are not built by chance; they are built by design."*
 
 </div>
 
 ---
 
-# 🌍 Project Story
+# 📖 Project Overview
 
-Modern enterprises cannot tolerate downtime.
+This project simulates a real-world **Enterprise Campus Network** using Cisco Packet Tracer.
 
-Every department depends on uninterrupted network connectivity to access applications, servers, and business services.
+The objective was to build a highly available network that integrates multiple Cisco networking technologies into one complete enterprise solution.
 
-This project was designed to simulate a real enterprise campus network where multiple Cisco technologies work together to deliver:
+The network provides:
 
 - High Availability
-- Fault Tolerance
-- Link Redundancy
 - Gateway Redundancy
-- Efficient Layer 2 Switching
-- Fast Layer 3 Routing
+- Link Redundancy
+- Layer 2 Switching
+- Layer 3 Routing
+- Efficient VLAN Segmentation
+- Enterprise Network Design
 
-Rather than configuring isolated networking features, this project integrates multiple CCNA technologies into one complete enterprise solution.
-
----
-
-# 🎯 Objectives
-
-The project aims to achieve the following:
-
-- Build a scalable enterprise campus topology.
-- Reduce broadcast domains using VLAN segmentation.
-- Simplify VLAN administration with VTP.
-- Aggregate multiple physical links using EtherChannel.
-- Enable communication between departments using Layer 3 Switching.
-- Eliminate the default gateway as a single point of failure using HSRP.
-- Provide redundant communication paths between network devices.
+This project demonstrates how enterprise switches collaborate to provide continuous connectivity while minimizing downtime.
 
 ---
 
-# 🏗 Enterprise Topology
+# 🎯 Project Objectives
+
+- Design a scalable enterprise switching infrastructure.
+- Separate departments using VLANs.
+- Centralize VLAN management using VTP.
+- Configure IEEE 802.1Q Trunk Links.
+- Aggregate physical links using EtherChannel.
+- Enable Inter-VLAN Routing.
+- Eliminate the gateway single point of failure using HSRP.
+- Build a redundant enterprise network.
+
+---
+
+# 🖥 Network Topology
 
 ![Topology](Images/topology.png)
 
 ---
 
-# 🏢 Network Architecture
+# 🏗 Network Architecture
 
-```
+| Layer | Devices | Responsibilities |
+|--------|----------|-----------------|
+| Distribution Layer | Two Cisco Multilayer Switches | Inter-VLAN Routing, HSRP |
+| Access Layer | Two Cisco Switches | VLAN Access, VTP, Trunking |
 
-```
-                Enterprise Campus Core
+The multilayer switches provide Layer 3 routing and gateway redundancy using HSRP.
 
-          +--------------------------------+
-          | Distribution Layer Switch      |
-          | HSRP Standby                   |
-          +---------------+----------------+
-                          ||
-                     EtherChannel
-                          ||
-          +---------------++----------------+
-          |                                |
-          |                                |
-+----------------------+        +----------------------+
-| Access Layer Switch  |        | Access Layer Switch  |
-| VTP Client           |        | VTP Client           |
-+----------------------+        +----------------------+
-          |                                |
-          +---------------++----------------+
-                          ||
-                     EtherChannel
-                          ||
-          +---------------+----------------+
-          | Distribution Layer Switch      |
-          | HSRP Active                    |
-          +--------------------------------+
-```
-
----
-
-# ⚙ Technologies Implemented
-
-| Technology | Purpose | Status |
-|------------|---------|--------|
-| VLAN | Department Segmentation | ✅ |
-| VTP | Centralized VLAN Management | ✅ |
-| IEEE 802.1Q | Trunk Links | ✅ |
-| EtherChannel | Link Aggregation | ✅ |
-| Layer 3 Switching | Inter-VLAN Routing | ✅ |
-| HSRP | Gateway Redundancy | ✅ |
-| Redundant Design | High Availability | ✅ |
+The access switches operate at Layer 2 and provide redundant paths using EtherChannel.
 
 ---
 
@@ -121,99 +83,115 @@ The project aims to achieve the following:
 
 ---
 
-# 📷 Configuration Verification
+# ⚙ Technologies Implemented
+
+| Technology | Description |
+|------------|-------------|
+| VLAN | Logical network segmentation |
+| VTP | Centralized VLAN management |
+| IEEE 802.1Q | VLAN trunking |
+| EtherChannel | Link aggregation and redundancy |
+| Layer 3 Switching | Inter-VLAN Routing |
+| HSRP | Default gateway redundancy |
 
 ---
 
-## VLAN Configuration
+# 🔹 VLAN Verification
 
-The VLAN database was successfully propagated and verified.
+The VLAN database was successfully configured and verified on the multilayer switches.
 
-![VLAN](Images/sw1-vlan-brief.png)
+![SW1 VLAN](Images/sw1-vlan-brief.png)
 
-![VLAN](Images/sw4-vlan-brief.png)
-
----
-
-## VTP Status
-
-Centralized VLAN management was configured using VTP Server and VTP Client modes.
-
-![VTP](Images/sw4-vtp-status.png)
-
-![VTP](Images/sw1-vtp-status.png)
+![SW4 VLAN](Images/sw4-vlan-brief.png)
 
 ---
 
-## Trunk Links
+# 🔹 VTP Verification
 
-IEEE 802.1Q trunks were configured to transport multiple VLANs between switches.
+VTP was configured to simplify VLAN administration across the network.
+
+- VTP Server
+- VTP Clients
+
+![VTP Server](Images/sw4-vtp-status.png)
+
+![VTP Client](Images/sw1-vtp-status.png)
+
+---
+
+# 🔹 Trunk Verification
+
+IEEE 802.1Q trunk links successfully transport traffic for multiple VLANs between switches.
 
 ![Trunk](Images/trunk-links.png)
 
 ---
 
-## EtherChannel
+# 🔹 EtherChannel Verification
 
-Multiple physical interfaces were combined into logical links to provide:
+EtherChannel combines multiple physical interfaces into a single logical connection.
 
-- Increased bandwidth
-- Redundancy
-- Load balancing
-- Higher availability
+### Benefits
+
+- Increased Bandwidth
+- Link Redundancy
+- Better Availability
+- Simplified Management
 
 ![EtherChannel](Images/etherchannel-summary.png)
 
 ---
 
-## Inter-VLAN Routing
+# 🔹 Inter-VLAN Routing
 
-Layer 3 Switching allows hosts in different VLANs to communicate without requiring an external router.
+Layer 3 switching enables communication between hosts located in different VLANs.
+
+The routing functionality was successfully verified through end-to-end connectivity tests.
 
 ![Routing](Images/inter-vlan-ping.png)
 
 ---
 
-## HSRP
+# 🔹 HSRP Verification
 
-Hot Standby Router Protocol was implemented to provide gateway redundancy.
+Hot Standby Router Protocol (HSRP) was configured to provide gateway redundancy.
 
-Role Assignment:
+### HSRP Roles
 
-| Switch | Role |
+| Device | Role |
 |---------|------|
-| Right Distribution Switch | Active |
-| Left Distribution Switch | Standby |
+| Left Multilayer Switch | Standby |
+| Right Multilayer Switch | Active |
 
-Clients always use the Virtual IP as their default gateway.
+Clients use a single Virtual IP Address as their default gateway.
 
-If the Active switch fails, the Standby switch automatically becomes Active.
+If the Active switch fails, the Standby switch automatically assumes the Active role.
 
 ![HSRP](Images/hsrp-status.png)
 
 ---
 
-## Redundancy Validation
+# 🔹 Redundancy Validation
 
-The network was tested under failure scenarios.
+The network was validated by testing redundant paths and gateway failover.
 
-The implemented redundancy mechanisms successfully maintained communication and network availability.
+The implemented design ensures network availability while reducing the impact of device or link failures.
 
 ![Redundancy](Images/redundancy-test.png)
 
 ---
 
-# 🧪 Testing Summary
+# ✅ Project Validation
 
-| Test | Result |
+| Test | Status |
 |------|--------|
-| VLAN Communication | ✅ Passed |
+| VLAN Configuration | ✅ Passed |
 | VTP Synchronization | ✅ Passed |
 | Trunk Verification | ✅ Passed |
-| EtherChannel Verification | ✅ Passed |
+| EtherChannel | ✅ Passed |
 | Inter-VLAN Routing | ✅ Passed |
-| HSRP Status | ✅ Passed |
-| Network Redundancy | ✅ Passed |
+| HSRP | ✅ Passed |
+| Redundancy | ✅ Passed |
 
 ---
 
@@ -222,51 +200,56 @@ The implemented redundancy mechanisms successfully maintained communication and 
 - Enterprise Network Design
 - Cisco Switching
 - Layer 2 Technologies
-- Layer 3 Technologies
-- VLAN Segmentation
+- Layer 3 Switching
+- VLAN Configuration
 - VTP Configuration
 - EtherChannel Configuration
 - HSRP Configuration
 - Inter-VLAN Routing
 - Network Troubleshooting
 - High Availability Design
-- Fault Tolerant Network Architecture
 
 ---
 
 # 📂 Repository Structure
 
-```
+```text
 Enterprise-Campus-Network
 │
 ├── Images
+│   ├── topology.png
+│   ├── sw1-vlan-brief.png
+│   ├── sw4-vlan-brief.png
+│   ├── sw1-vtp-status.png
+│   ├── sw4-vtp-status.png
+│   ├── trunk-links.png
+│   ├── etherchannel-summary.png
+│   ├── hsrp-status.png
+│   ├── inter-vlan-ping.png
+│   └── redundancy-test.png
 │
 ├── PacketTracer
 │   └── Enterprise_Campus_Network.pkt
 │
 ├── README.md
-│
 └── LICENSE
 ```
 
 ---
 
-# 🚀 Future Enhancements
+# 🚀 Future Improvements
 
-The current implementation establishes a strong enterprise foundation.
+Potential enhancements for future versions include:
 
-Possible future improvements include:
-
-- OSPF Dynamic Routing
-- Rapid PVST+
-- DHCP Server Integration
-- ACL Security Policies
-- SSH Remote Management
-- Syslog Server
-- NTP Synchronization
-- SNMP Monitoring
+- Dynamic Routing (OSPF)
+- ACL Implementation
 - Port Security
-- DHCP Snooping
+- DHCP Server Integration
+- Rapid PVST+
+- SSH Remote Management
+- SNMP Monitoring
+- Syslog Server
+- NTP Configuration
 
 ---
 
@@ -284,8 +267,10 @@ Cairo University
 
 <div align="center">
 
-### ⭐ If you found this project useful, consider giving it a Star.
+### ⭐ Thank you for visiting this repository.
 
-*"Networks are built with cables, but reliability is built with design."*
+If you found this project helpful, consider giving it a ⭐.
+
+*"Enterprise networks are not measured by speed alone, but by their ability to remain operational when failures occur."*
 
 </div>
